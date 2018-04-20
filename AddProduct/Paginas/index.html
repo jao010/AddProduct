@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AddProduct-Home</title>
+    <link rel="stylesheet" type="text/css" href="../style/bootstrap-theme.css"/>
+    <link rel="stylesheet" type="text/css" href="../style/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../style/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="../style/bootstrap.min.css"/>
+    <script type="text/javascript" >
+        function Checkfiles(){
+            var fup = document.getElementById('filename');
+            var fileName = fup.value;
+            var ext = fileName.substring(fileName.lastIndexOf('.') + 1);
+            if(ext =="jpeg" || ext=="png"){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+    </script>
+        
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        
+    <script type="text/javascript">
+
+        function PreviewImage() {
+        var oFReader = new FileReader();
+        oFReader.readAsDataURL(document.getElementById("uploadImage").files[0]);
+
+        oFReader.onload = function (oFREvent) {
+        document.getElementById("uploadPreview").src = oFREvent.target.result;
+        };
+        };    
+    </script>
+        
+    <script type="text/javascript">
+        $('index.html').ready(function(){
+            $("[name='enviar']").submit(function(){
+                if($('#inputNome').val() == false){
+                    $('#inputNome').css({"background-color":"#a94442"});
+                    $('#inputNome').focus();
+                    $('#01').append('<div id="alert01" class="alert alert-danger" role="alert"><p>Informe o <strong>nome no CEO</strong></p></div>').show('slow');
+                    $('#01').removeAttr("id");
+                    return false;
+                }     
+            });
+            
+            $("[name='enviar']").submit(function(){
+                if($('#inputEmail').val() == false){
+                    $('#inputEmail').css({"background-color":"#a94442"});
+                    $('#inputEmail').focus();
+                    $('#02').append('<div id="alert02" class="alert alert-danger" role="alert"><p>Informe o <strong>Email</strong></p></div>').show('slow');
+                    $('#02').removeAttr("id");
+                    return false;
+                }     
+            });
+            
+            $("[name='enviar']").submit(function(){
+                if($('#inputPassword').val() == false){
+                    $('#inputPassword').css({"background-color":"#a94442"});
+                    $('#inputPassword').focus();
+                    $('#03').append('<div id="alert03" class="alert alert-danger" role="alert"><p>Informe a sua <strong>senha</strong></p></div>').show('slow');
+                    $('#03').removeAttr("id");
+                    return false;
+                }     
+            });
+            
+            $("[name='enviar']").submit(function(){
+                if($('#inputConfirm').val() == false){
+                    $('#inputConfirm').css({"background-color":"#a94442"});
+                    $('#inputConfirm').focus();
+                    $('#04').append('<div id="alert04" class="alert alert-danger" role="alert"><p><strong>Confirme</strong> a sua <strong>senha</strong></p></div>').show('slow');
+                    $('#04').removeAttr("id");
+                    return false;
+                }     
+            });
+            
+            $("[name='enviar']").submit(function(){
+                if($('#inputConfirm').val() != $('#inputPassword') && $("#inputConfirm") != false && $("#inputPassword") != false){
+                    $('#inputConfirm').css({"background-color":"#a94442"});
+                    $('#inputPassword').css({"background-color":"#a94442"});
+                    alert("O campo senha e confirmar devem ser iguais.");
+                    return false;
+                }     
+            });
+            
+            $("[name='enviar']").submit(function(){
+                if($('#inputDenominacao').val() == false){
+                    $('#inputDenominacao').css({"background-color":"#a94442"});
+                    $('#inputDenominacao').focus();
+                    $('#05').append('<div id="alert05" class="alert alert-danger" role="alert"><p>Informe a sua <strong>denominação</strong></p></div>').show('slow');
+                    $('#05').removeAttr("id");
+                    return false;
+                }     
+            });
+            
+            $("[name='enviar']").submit(function(){
+                if($('#inputCnpj').val() == false){
+                    $('#inputCnpj').css({"background-color":"#a94442"});
+                    $('#inputCnpj').focus();
+                    $('#06').append('<div id="alert06" class="alert alert-danger" role="alert"><p>Informe a seu <strong>CNPJ</strong></p></div>').show('slow');
+                    $('#06').removeAttr("id");
+                    return false;
+                }     
+            });
+            
+            $("[name='enviar']").submit(function(){
+                if($('#inputNumeroCelular').val() == false){
+                    $('#inputNumeroCelular').css({"background-color":"#a94442"});
+                    $('#inputNumeroCelular').focus();
+                    $('#07').append('<div id="alert07" class="alert alert-danger" role="alert"><p>Informe a seu <strong>Numero celular</strong></p></div>').show('slow');
+                    $('#07').removeAttr("id");
+                    return false;
+                }     
+            });
+            
+            $("[name='enviar']").submit(function(){
+                if($('#uploadImage').val() == false){
+                    $('#uploadImage').css({"background-color":"#a94442"});
+                    $('#uploadImage').focus();
+                    $('#08').append('<div id="alert08" class="alert alert-danger" role="alert"><p>Adicione a <strong>logo</strong> da sua empresa</p></div>').show('slow');
+                    $('#08').removeAttr("id");
+                    return false;
+                }     
+            });
+            
+            //RESET NOS CAMPOS QUANDO ELES TIVEREM CORRETOS
+            $('#inputNome').blur(function(){
+                if($('#inputNome').val()){
+                    $('#inputNome').css({"background-color":"#fff"});
+                    $('#alert01').remove();
+                }
+            });
+            
+            $('#inputEmail').blur(function(){
+                if($('#inputEmail').val()){
+                    $('#inputEmail').css({"background-color":"#fff"});
+                    $('#alert02').remove();
+                }
+            });
+            
+            $('#inputPassword').blur(function(){
+                if($('#inputPassword').val()){
+                    $('#inputPassword').css({"background-color":"#fff"});
+                    $('#alert03').remove();
+                }
+            });
+            
+            $('#inputPassword').blur(function(){
+                if($('#inputPassword').val()){
+                    $('#inputPassword').css({"background-color":"#fff"});
+                    $('#inputConfirm').css({"background-color":"#fff"});
+                }
+            });
+            
+            $('#inputConfirm').blur(function(){
+                if($('#inputConfirm').val()){
+                    $('#inputConfirm').css({"background-color":"#fff"});
+                    $('#alert04').remove();
+                }
+            });
+            
+            $('#inputDenominacao').blur(function(){
+                if($('#inputDenominacao').val()){
+                    $('#inputDenominacao').css({"background-color":"#fff"});
+                    $('#alert05').remove();
+                }
+            });
+            
+            $('#inputCnpj').blur(function(){
+                if($('#inputCnpj').val()){
+                    $('#inputCnpj').css({"background-color":"#fff"});
+                    $('#alert06').remove();
+                }
+            });
+            
+            $('#inputNumeroCelular').blur(function(){
+                if($('#inputNumeroCelular').val()){
+                    $('#inputNumeroCelular').css({"background-color":"#fff"});
+                    $('#alert07').remove();
+                }
+            });
+            
+            $('#uploadImage').blur(function(){
+                if($('#uploadImage').val()){
+                    $('#uploadImage').css({"background-color":"#fff"});
+                    $('#alert08').remove();
+                }
+            });
+            
+        });    
+    </script>    
+    </head>
+    <body>
+     <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+          </button>
+            
+          <a class="navbar-brand" href="#">Menu</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Adicionar Mercado</a></li>
+            <li><a href="#about">Adicionar Produto</a></li>
+            <li><a href="#contact">Remover Mercado</a></li>
+            <li><a href="#contact">Remover Produto</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    
+    <br><br><br>
+    <h1><center>Cadastro do Mercado</center></h1>
+    <hr>
+    <br>
+    
+    <form id="formExemplo" name="enviar" method="get" action="enderecoMercados.php" onsubmit="Checkfiles(this)" data-toggle="validator" role="form">
+    <div id="01" class="form-group">
+        <label for="textNome" class="control-label">Nome do CEO</label>
+        <input id="inputNome" class="form-control" placeholder="Digite seu Nome..." type="text">
+    </div>
+  
+    <div id="02" class="form-group">
+        <label for="inputEmail" class="control-label">Email</label>
+        <input id="inputEmail" class="form-control" placeholder="Digite seu E-mail" type="email">
+    </div>
+  
+    <div id="03" class="form-group">
+        <label for="inputPassword" class="control-label">Senha</label>
+        <input type="password" class="form-control" id="inputPassword" placeholder="Digite sua Senha...">
+    </div>
+  
+    <div id="04" class="form-group">
+        <label for="inputConfirm" class="control-label">Confirme a Senha</label>
+        <input type="password" class="form-control" id="inputConfirm" placeholder="Confirme sua Senha...">
+    </div>
+  
+    <div id="05" class="form-group">
+        <label for="inputDenominacao" class="control-label">Denominação social(Nome da empresa)</label>
+        <input type="text" class="form-control" id="inputDenominacao" placeholder="Denominação social...">
+    </div>
+        
+    <div id="06" class="form-group">
+        <label for="inputCnpj" class="control-label">CNPJ</label>
+        <input type="number" class="form-control" id="inputCnpj" placeholder="CNPJ">
+    </div>
+        
+    <div id="07" class="form-group">
+        <label for="inputNumeroCelular" class="control-label">Número celular</label>
+        <input type="number" class="form-control" id="inputNumeroCelular" placeholder="Número...">
+    </div>      
+    
+     <div id="08"class="form-group">
+        <label for="inputNumeroCelular" class="control-label">Logo da empresa</label>
+        <div class="row">
+            <div class="col-xs-6 col-md-3">
+                 <div class="thumbnail">
+                    <img id="uploadPreview"/>
+                    <input id="uploadImage" type="file" accept="image/jpeg, image/png, image/jpg" style="border: 1px solid #ccc;border-radius: 4px;max-width:100%;" onchange="PreviewImage();">
+                </div>
+            </div>
+         </div>
+    </div>
+  
+        <input type="submit" name="btnEnviar" class="btn btn-primary"/>
+
+    </form>
+    <br>
+    </body>
+</html>
